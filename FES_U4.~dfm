@@ -1,10 +1,10 @@
-object Form2: TForm2
-  Left = 188
-  Top = 123
-  Width = 651
-  Height = 305
-  Caption = 'Search File Extension'
-  Color = clGradientActiveCaption
+object Form4: TForm4
+  Left = 743
+  Top = 188
+  Width = 665
+  Height = 302
+  Caption = 'Easy Search'
+  Color = clActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -14,11 +14,11 @@ object Form2: TForm2
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 184
+    Left = 168
     Top = 112
-    Width = 25
+    Width = 40
     Height = 19
-    Caption = 'File:'
+    Caption = #1060#1072#1081#1083':'
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -16
@@ -55,11 +55,11 @@ object Form2: TForm2
     Visible = False
   end
   object Label4: TLabel
-    Left = 160
+    Left = 136
     Top = 168
-    Width = 55
+    Width = 78
     Height = 19
-    Caption = 'Program:'
+    Caption = #1055#1088#1086#1075#1088#1072#1084#1084#1072':'
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -16
@@ -69,11 +69,11 @@ object Form2: TForm2
     Visible = False
   end
   object Label5: TLabel
-    Left = 144
+    Left = 140
     Top = 200
     Width = 72
     Height = 19
-    Caption = 'Description:'
+    Caption = #1054#1087#1080#1089#1072#1085#1080#1077':'
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -16
@@ -108,7 +108,7 @@ object Form2: TForm2
     Top = 112
     Width = 75
     Height = 25
-    Caption = 'Select'
+    Caption = #1042#1099#1073#1088#1072#1090#1100
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -13
