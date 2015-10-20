@@ -1,8 +1,8 @@
 object Form2: TForm2
   Left = 188
   Top = 123
-  Width = 651
-  Height = 305
+  Width = 880
+  Height = 332
   Caption = 'Easy Search'
   Color = clGradientActiveCaption
   Font.Charset = DEFAULT_CHARSET
@@ -10,6 +10,7 @@ object Form2: TForm2
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
@@ -125,5 +126,26 @@ object Form2: TForm2
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    object Selectfile1: TMenuItem
+      Caption = '&File'
+      object Open1: TMenuItem
+        Caption = 'Open'
+        OnClick = Button1Click
+      end
+      object Close1: TMenuItem
+        Caption = 'Exit'
+        OnClick = Close1Click
+      end
+    end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object About1: TMenuItem
+        Caption = 'About'
+        OnClick = About1Click
+      end
+    end
   end
 end

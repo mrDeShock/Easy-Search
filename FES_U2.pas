@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Forms, XPMan,// стандартные модули
   Dialogs, // модуль для диалогов (showmessage)
   Controls, StdCtrls, // модули для TLabel, TButton, TEdit
-  DB, ADODB; // модули для подключения к БД
+  DB, ADODB, Menus; // модули для подключения к БД
 
 type
   TForm2 = class(TForm)
@@ -19,7 +19,15 @@ type
     Label5: TLabel;
     ADOConnection1: TADOConnection;
     Label6: TLabel;
+    MainMenu1: TMainMenu;
+    Selectfile1: TMenuItem;
+    Open1: TMenuItem;
+    Close1: TMenuItem;
+    Help1: TMenuItem;
+    About1: TMenuItem;
     procedure Button1Click(Sender: TObject);
+    procedure Close1Click(Sender: TObject);
+    procedure About1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,6 +38,8 @@ var
   Form2: TForm2;
 
 implementation
+
+uses FES_U5;
 
 {$R *.dfm}
 
@@ -127,5 +137,15 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
 ADOConnection1.Connected := False;
 end;
 
+
+procedure TForm2.Close1Click(Sender: TObject);
+begin
+Form2.Close;
+end;
+
+procedure TForm2.About1Click(Sender: TObject);
+begin
+Form5.Show;
+end;
 
 end.

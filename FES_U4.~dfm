@@ -4,7 +4,7 @@ object Form4: TForm4
   Width = 665
   Height = 302
   Caption = 'Easy Search'
-  Color = clActiveCaption
+  Color = clGradientActiveCaption
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11

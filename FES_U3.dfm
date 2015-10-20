@@ -10,6 +10,7 @@ object Form3: TForm3
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
@@ -125,5 +126,24 @@ object Form3: TForm3
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    object Selectfile1: TMenuItem
+      Caption = '&'#1060#1072#1081#1083
+      object Open1: TMenuItem
+        Caption = #1042#1110#1076#1082#1088#1080#1090#1080
+        OnClick = Button1Click
+      end
+      object Close1: TMenuItem
+        Caption = #1042#1080#1081#1090#1080
+      end
+    end
+    object Help1: TMenuItem
+      Caption = #1044#1086#1087#1086#1084#1086#1075#1072
+      object About1: TMenuItem
+        Caption = #1055#1088#1086' '#1087#1088#1086#1075#1088#1072#1084#1091
+      end
+    end
   end
 end

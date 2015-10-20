@@ -1,6 +1,6 @@
 object Form4: TForm4
-  Left = 743
-  Top = 188
+  Left = 830
+  Top = 133
   Width = 665
   Height = 302
   Caption = 'Easy Search'
@@ -10,6 +10,7 @@ object Form4: TForm4
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
@@ -125,5 +126,24 @@ object Form4: TForm4
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'
+  end
+  object MainMenu1: TMainMenu
+    Left = 32
+    object Selectfile1: TMenuItem
+      Caption = '&'#1060#1072#1081#1083
+      object Open1: TMenuItem
+        Caption = #1054#1090#1082#1088#1099#1090#1100
+        OnClick = Button1Click
+      end
+      object Close1: TMenuItem
+        Caption = #1042#1099#1081#1090#1080
+      end
+    end
+    object Help1: TMenuItem
+      Caption = #1055#1086#1084#1086#1097#1100
+      object About1: TMenuItem
+        Caption = #1054' '#1087#1088#1086#1075#1088#1072#1084#1084#1077
+      end
+    end
   end
 end
