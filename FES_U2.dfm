@@ -1,22 +1,22 @@
 object Form2: TForm2
-  Left = 188
-  Top = 123
-  Width = 880
-  Height = 332
+  Left = 220
+  Top = 225
+  Width = 755
+  Height = 460
   Caption = 'Easy Search'
   Color = clGradientActiveCaption
-  Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
-  Font.Height = -11
-  Font.Name = 'MS Sans Serif'
-  Font.Style = []
+  Font.Charset = RUSSIAN_CHARSET
+  Font.Color = clBlack
+  Font.Height = -13
+  Font.Name = 'Times New Roman'
+  Font.Style = [fsItalic]
   Menu = MainMenu1
   OldCreateOrder = False
   PixelsPerInch = 96
-  TextHeight = 13
+  TextHeight = 15
   object Label1: TLabel
     Left = 184
-    Top = 112
+    Top = 88
     Width = 25
     Height = 19
     Caption = 'File:'
@@ -27,37 +27,9 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
   end
-  object Label2: TLabel
-    Left = 224
-    Top = 174
-    Width = 9
-    Height = 15
-    Caption = '...'
-    Font.Charset = RUSSIAN_CHARSET
-    Font.Color = clBlack
-    Font.Height = -13
-    Font.Name = 'Times New Roman'
-    Font.Style = [fsItalic]
-    ParentFont = False
-    Visible = False
-  end
-  object Label3: TLabel
-    Left = 224
-    Top = 204
-    Width = 9
-    Height = 15
-    Caption = '...'
-    Font.Charset = RUSSIAN_CHARSET
-    Font.Color = clBlack
-    Font.Height = -13
-    Font.Name = 'Times New Roman'
-    Font.Style = [fsItalic]
-    ParentFont = False
-    Visible = False
-  end
   object Label4: TLabel
-    Left = 160
-    Top = 168
+    Left = 152
+    Top = 144
     Width = 55
     Height = 19
     Caption = 'Program:'
@@ -70,8 +42,8 @@ object Form2: TForm2
     Visible = False
   end
   object Label5: TLabel
-    Left = 144
-    Top = 200
+    Left = 136
+    Top = 248
     Width = 72
     Height = 19
     Caption = 'Description:'
@@ -85,7 +57,7 @@ object Form2: TForm2
   end
   object Label6: TLabel
     Left = 216
-    Top = 232
+    Top = 376
     Width = 9
     Height = 15
     Caption = '...'
@@ -97,16 +69,42 @@ object Form2: TForm2
     ParentFont = False
     Visible = False
   end
+  object Label2: TLabel
+    Left = 216
+    Top = 352
+    Width = 3
+    Height = 15
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -13
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsItalic]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 98
+    Top = 352
+    Width = 110
+    Height = 19
+    Caption = 'Original extension:'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -16
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    Visible = False
+  end
   object EFileName: TEdit
     Left = 216
-    Top = 112
+    Top = 88
     Width = 297
-    Height = 21
+    Height = 23
     TabOrder = 0
   end
   object Button1: TButton
     Left = 528
-    Top = 112
+    Top = 88
     Width = 75
     Height = 25
     Caption = 'Select'
@@ -118,6 +116,42 @@ object Form2: TForm2
     ParentFont = False
     TabOrder = 1
     OnClick = Button1Click
+  end
+  object Memo2: TMemo
+    Left = 216
+    Top = 145
+    Width = 265
+    Height = 89
+    Color = clGradientActiveCaption
+    ReadOnly = True
+    TabOrder = 2
+    Visible = False
+  end
+  object Memo3: TMemo
+    Left = 216
+    Top = 249
+    Width = 265
+    Height = 89
+    Color = clGradientActiveCaption
+    ReadOnly = True
+    TabOrder = 3
+    Visible = False
+  end
+  object CheckBox1: TCheckBox
+    Left = 512
+    Top = 128
+    Width = 129
+    Height = 17
+    Caption = 'Use Hex search'
+    Checked = True
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clBlack
+    Font.Height = -15
+    Font.Name = 'Times New Roman'
+    Font.Style = []
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 4
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 

@@ -13,8 +13,6 @@ type
     EFileName: TEdit;
     Label1: TLabel;
     Button1: TButton;
-    Label2: TLabel;
-    Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     ADOConnection1: TADOConnection;
@@ -25,7 +23,16 @@ type
     Close1: TMenuItem;
     Help1: TMenuItem;
     About1: TMenuItem;
+    Memo2: TMemo;
+    Memo3: TMemo;
+    N1: TMenuItem;
+    CheckBox1: TCheckBox;
+    Label2: TLabel;
+    Label3: TLabel;
     procedure Button1Click(Sender: TObject);
+    procedure Close1Click(Sender: TObject);
+    procedure About1Click(Sender: TObject);
+    procedure Help1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,6 +44,8 @@ var
 
 implementation
 
+uses FES_U5;
+
 {$R *.dfm}
 
 procedure TForm3.Button1Click(Sender: TObject);
@@ -44,7 +53,8 @@ var
   a:array [0..127] of byte; // массив байтов для чтения из файла
   s_hex:string; // строка для преобразования из массива ^^^ в шестнадцатеричный вид для запроса к БД
   i:Integer; // переменная для цикла
-  pth:string;
+  pth:string; //строка для сброса папки по умолчанию
+  ext:string; // строка с расширением файла
 begin
 pth := ExtractFileDir(Application.ExeName);
 if pth[Length(pth)] <> '\' then
@@ -91,17 +101,26 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
   Parameters.ParamByName('hex').Value := s_hex; // передаем параметр для запроса
   Open; // открываем
   First; // становимся на первую запись
+  if CheckBox1.Checked = True then // если в checkbox стоит галочка то выполняем поиск по Hex
   if not Eof then // если есть хоть одна строка, то Eof не будет ложью. значит есть с чем работать
     begin // пишем что найдено
     Label6.Caption := 'завдяки Hex';
     Label6.Visible:=true;
-    Label2.Caption := FieldByName('Program').AsString;
-    Label2.Visible:=true;
+    Memo2.Lines.Text := FieldByName('Program').AsString;
+    Memo2.Visible:=true;
     Label4.Visible:=true;
-    Label3.Caption := FieldByName('Опис').AsString;
-    Label3.Visible:=true;
+    Memo3.Lines.Text := FieldByName('Опис').AsString;
+    Memo3.Visible:=true;
     Label5.Visible:=true;
+    ext:= ExtractFileExt(EFileName.Text); //запись расширения в ext
+    if ext = '' then //если расширения у файла нет
+    begin
+    Label2.Caption := FieldByName('Extension').AsString;
+    Label3.Visible:=true;
     end
+    else
+    end
+  else // если же checkbox без галочки — ищем по названию
   else // если ничего не было найдено...
     begin // ... ищем по расширению
     SQL.Text := 'select * from File_Extension where Extension=:ext';
@@ -112,19 +131,19 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
       begin // пишем что найдено
       Label6.Caption := 'завдяки Ext';
       Label6.Visible:=true;
-      Label2.Caption := FieldByName('Program').AsString;
-      Label2.Visible:=true;
+      Memo2.Lines.Text := FieldByName('Program').AsString;
+      Memo2.Visible:=true;
       Label4.Visible:=true;
-      Label3.Caption := FieldByName('Опис').AsString;
-      Label3.Visible:=true;
+      Memo3.Lines.Text := FieldByName('Опис').AsString;
+      Memo3.Visible:=true;
       Label5.Visible:=true;
       end
     else // если и тут ничего не найдено...
       begin // ...пишем что НЕ найдено
       Label6.Caption := 'Нічого не знайдено. Завантажте, будь ласка, цей файл на мою пошту: mrDeShock@yandex.ua';
       Label6.Visible:=true;
-      Label2.Caption := EmptyStr;
-      Label3.Caption := EmptyStr;
+      Memo2.Lines.Text := EmptyStr;
+      Memo3.Lines.Text := EmptyStr;
       end;
     end;
   Free;
@@ -133,5 +152,24 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
 ADOConnection1.Connected := False;
 end;
 
+
+procedure TForm3.Close1Click(Sender: TObject);
+begin
+Form3.Close;
+end;
+
+procedure TForm3.About1Click(Sender: TObject);
+begin
+Form5.Show;
+end;
+
+procedure TForm3.Help1Click(Sender: TObject);
+var
+eth:string;
+begin
+eth:= ExtractFilePath(Application.ExeName);
+SetCurrentDir(eth);
+WinExec('hh.exe help_ua.chm',SW_SHOW);
+end;
 
 end.
