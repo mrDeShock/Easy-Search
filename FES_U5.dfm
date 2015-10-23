@@ -31,10 +31,9 @@ object Form5: TForm5
   object Label2: TLabel
     Left = 0
     Top = 24
-    Width = 270
-    Height = 25
-    Alignment = taCenter
-    Caption = 'version 1.0'
+    Width = 160
+    Height = 13
+    Caption = '                                    version 1.0'
   end
   object Label5: TLabel
     Left = 0
@@ -48,10 +47,9 @@ object Form5: TForm5
   object Label8: TLabel
     Left = 0
     Top = 224
-    Width = 270
+    Width = 210
     Height = 13
-    Alignment = taCenter
-    Caption = 'E-mail: mrDeShock@yandex.ua'
+    Caption = '                    E-mail: mrDeShock@yandex.ua'
   end
   object Panel1: TPanel
     Left = 0
