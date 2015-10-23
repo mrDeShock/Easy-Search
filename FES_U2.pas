@@ -6,8 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Forms, XPMan,// стандартные модули
   Dialogs, // модуль для диалогов (showmessage)
   Controls, StdCtrls, // модули для TLabel, TButton, TEdit
-  DB, ADODB, Menus; // модули для подключения к БД
-
+  DB, ADODB, Menus, // модули для подключения к БД
+  VistaAltFixUnit;  //фикс пропажи conrol по нажатию на альт
 type
   TForm2 = class(TForm)
     EFileName: TEdit;
@@ -31,6 +31,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Close1Click(Sender: TObject);
     procedure About1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -159,6 +160,11 @@ end;
 procedure TForm2.About1Click(Sender: TObject);
 begin
 Form5.Show;
+end;
+
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+TVistaAltFix.Create(Self);
 end;
 
 end.

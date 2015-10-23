@@ -1,6 +1,6 @@
 object Form4: TForm4
-  Left = 180
-  Top = 119
+  Left = 0
+  Top = 0
   Width = 755
   Height = 460
   Caption = 'Easy Search'
@@ -12,6 +12,7 @@ object Form4: TForm4
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel

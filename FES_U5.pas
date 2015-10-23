@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, StdCtrls;
+  Dialogs, ExtCtrls, StdCtrls, VistaAltFixUnit;
 
 type
   TForm5 = class(TForm)
@@ -18,6 +18,7 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,5 +31,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+TVistaAltFix.Create(Self);
+end;
 
 end.

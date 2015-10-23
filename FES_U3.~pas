@@ -6,8 +6,8 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Forms, XPMan,// стандартные модули
   Dialogs, // модуль для диалогов (showmessage)
   Controls, StdCtrls, // модули для TLabel, TButton, TEdit
-  DB, ADODB, Menus; // модули для подключения к БД
-
+  DB, ADODB, Menus, // модули для подключения к БД
+  VistaAltFixUnit;  //фикс пропажи conrol по нажатию на альт
 type
   TForm3 = class(TForm)
     EFileName: TEdit;
@@ -33,6 +33,7 @@ type
     procedure Close1Click(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Help1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -114,8 +115,11 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
     Label5.Visible:=true;
     ext:= ExtractFileExt(EFileName.Text); //запись расширения в ext
     if ext = '' then //если расширения у файла нет
+    begin
     Label2.Caption := FieldByName('Extension').AsString;
     Label3.Visible:=true;
+    end
+    else
     end
   else // если же checkbox без галочки — ищем по названию
   else // если ничего не было найдено...
@@ -167,6 +171,11 @@ begin
 eth:= ExtractFilePath(Application.ExeName);
 SetCurrentDir(eth);
 WinExec('hh.exe help_ua.chm',SW_SHOW);
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+TVistaAltFix.Create(Self);
 end;
 
 end.

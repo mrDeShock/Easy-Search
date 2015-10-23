@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 823
-  Top = 404
+  Left = 0
+  Top = 0
   Width = 400
   Height = 250
   Caption = 'Select languge'
