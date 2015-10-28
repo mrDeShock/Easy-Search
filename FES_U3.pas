@@ -33,7 +33,6 @@ type
     procedure Close1Click(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Help1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -173,9 +172,5 @@ SetCurrentDir(eth);
 WinExec('hh.exe help_ua.chm',SW_SHOW);
 end;
 
-procedure TForm3.FormCreate(Sender: TObject);
-begin
-TVistaAltFix.Create(Self);
-end;
 
 end.

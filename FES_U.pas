@@ -14,6 +14,7 @@ type
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,6 +27,11 @@ var
 implementation
 uses FES_U2, FES_U3, FES_U4;
 {$R *.dfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+TVistaAltFix.Create(Self);
+end;
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin

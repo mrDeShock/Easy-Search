@@ -28,10 +28,11 @@ type
     CheckBox1: TCheckBox;
     Label2: TLabel;
     Label3: TLabel;
+    Help2: TMenuItem;
     procedure Button1Click(Sender: TObject);
     procedure Close1Click(Sender: TObject);
     procedure About1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure Help1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -162,9 +163,13 @@ begin
 Form5.Show;
 end;
 
-procedure TForm2.FormCreate(Sender: TObject);
+procedure TForm2.Help1Click(Sender: TObject);
+var
+eth:string;
 begin
-TVistaAltFix.Create(Self);
+eth:= ExtractFilePath(Application.ExeName);
+SetCurrentDir(eth);
+WinExec('hh.exe help_en.chm',SW_SHOW);
 end;
 
 end.

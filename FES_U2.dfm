@@ -12,7 +12,6 @@ object Form2: TForm2
   Font.Style = [fsItalic]
   Menu = MainMenu1
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
@@ -177,6 +176,10 @@ object Form2: TForm2
     end
     object Help1: TMenuItem
       Caption = 'Help'
+      object Help2: TMenuItem
+        Caption = 'Help'
+        OnClick = Help1Click
+      end
       object About1: TMenuItem
         Caption = 'About'
         OnClick = About1Click
