@@ -143,20 +143,18 @@ object Form3: TForm3
     Width = 217
     Height = 17
     Caption = #1042#1080#1082#1086#1088#1080#1089#1090#1086#1074#1091#1074#1072#1090#1080' '#1087#1086#1096#1091#1082' '#1087#1086' Hex'
-    Checked = True
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -15
     Font.Name = 'Times New Roman'
     Font.Style = []
     ParentFont = False
-    State = cbChecked
     TabOrder = 4
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=extension.mdb;Persi' +
-      'st Security Info=False'
+      'st Security Info=False;Jet OLEDB:Database Password=AQXdRtqzXS'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'

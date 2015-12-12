@@ -143,20 +143,18 @@ object Form2: TForm2
     Width = 129
     Height = 17
     Caption = 'Use Hex search'
-    Checked = True
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clBlack
     Font.Height = -15
     Font.Name = 'Times New Roman'
     Font.Style = []
     ParentFont = False
-    State = cbChecked
     TabOrder = 4
   end
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=extension.mdb;Persi' +
-      'st Security Info=False'
+      'st Security Info=False;Jet OLEDB:Database Password=AQXdRtqzXS'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.Jet.OLEDB.4.0'

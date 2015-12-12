@@ -33,7 +33,6 @@ type
     procedure Close1Click(Sender: TObject);
     procedure About1Click(Sender: TObject);
     procedure Help1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -105,6 +104,8 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
   if CheckBox1.Checked = True then // если в checkbox стоит галочка то выполняем поиск по Hex
   if not Eof then // если есть хоть одна строка, то Eof не будет ложью. значит есть с чем работать
     begin // пишем что найдено
+    Label3.Visible:=false;
+    Label2.Visible:=false;
     Label6.Caption := 'завдяки Hex';
     Label6.Visible:=true;
     Memo2.Lines.Text := FieldByName('Program').AsString;
@@ -116,8 +117,9 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
     ext:= ExtractFileExt(EFileName.Text); //запись расширения в ext
     if ext = '' then //если расширения у файла нет
     begin
-    Label2.Caption := FieldByName('Extension').AsString;
+    Label2.Caption := FieldByName('Ext').AsString;
     Label3.Visible:=true;
+    Label2.Visible:=true;
     end
     else
     end
@@ -173,9 +175,5 @@ SetCurrentDir(eth);
 WinExec('hh.exe help_ua.chm',SW_SHOW);
 end;
 
-procedure TForm3.FormCreate(Sender: TObject);
-begin
-TVistaAltFix.Create(Self);
-end;
 
 end.

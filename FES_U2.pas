@@ -60,7 +60,7 @@ pth := ExtractFileDir(Application.ExeName);
 if pth[Length(pth)] <> '\' then
 pth := pth + '\';
 try
-ADOConnection1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='+pth+'extension.mdb;Persist Security Info=False';
+ADOConnection1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source='+pth+'extension.mdb;Persist Security Info=False;Jet OLEDB:Database Password=AQXdRtqzXS';
 ADOConnection1.Connected := True; // подключаемся к БД
 except
 // конструкция try ... except ... end для обработки ошибок
@@ -104,6 +104,8 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
   if CheckBox1.Checked = True then // если в checkbox стоит галочка, то выполняем поиск по Hex
   if not Eof then // если есть хоть одна строка, то Eof не будет ложью. значит есть с чем работать
     begin // пишем что найдено
+    Label3.Visible:=false;
+    Label2.Visible:=false;
     Label6.Caption := 'due to Hex';
     Label6.Visible:=true;
     Memo2.Lines.Text := FieldByName('Program').AsString;
@@ -115,8 +117,9 @@ with TADOQuery.Create(nil) do // создаем объект для получения данных из БД
     ext:= ExtractFileExt(EFileName.Text); //запись расширения в ext
     if ext = '' then //если расширения у файла нет
     begin
-    Label2.Caption := FieldByName('Extension').AsString;
+    Label2.Caption := FieldByName('Ext').AsString;
     Label3.Visible:=true;
+    Label2.Visible:=true;
     end
     else
     end
